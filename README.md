@@ -1,15 +1,17 @@
-#Docker Environment for Mac Silicon based on Parallels
+# Docker Environment for Mac Silicon based on Parallels
 
 Problem: Docker Desktop comes with a terrible performance, mainly caused by poor File I/O. Previuous solution with Docker Machine and parallels does not work on Silicon because its base on x86 for parallels. 
 
-Solution: Provisions an ARM based Docker environment into Parallels for M1 (v17+).
+Solution: Provision an ARM based Docker environment into Parallels for M1 (v17+).
 
 ## Preconditions
 ### Parallels
-Install Parallels Desktop for Mac Pro Edition: https://www.parallels.com/directdownload/pd17/image/?experience=enter_key. Note: you will need a license for Parallels.
+Install Parallels Desktop for Mac Pro Edition: 
+https://www.parallels.com/directdownload/pd17/image/?experience=enter_key. 
+Note: you will need a license for Parallels.
 
 ### Setup Docker machine
-Provisioning is based on Vagrant and Ansible. Vagrant needs parallels provider to work with Parallels. 
+Provisioning is based on Vagrant and Ansible. Vagrant needs Parallels provider to work with Parallels. 
 
 ```
 brew install vagrant ansible 
