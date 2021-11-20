@@ -1,0 +1,44 @@
+
+
+- name: Check if pip3 ist installed
+  apt:
+    name: ['python3-pip']
+    state: present
+    update_cache: yes
+
+- name: install python dependency for docker
+  pip:
+    name:
+      - docker
+
+- name: Add Docker GPG key
+  apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
+- name: Add Docker APT repository
+  apt_repository:
+    repo: deb [arch=arm64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+- name: Docker CE CLi
+  apt: 
+    name: docker-ce-cli
+    update_cache: yes
+    allow_unauthenticated: yes
+    state: present
+
+- name: Docker CE
+  apt: 
+    name: docker-ce
+    update_cache: yes
+    force: yes
+    state: present
+
+- name: Install list of packages
+  apt:
+    name: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'gnupg2','pass']
+    state: present
+    update_cache: yes
+
+- name: Manage  users
+  user: 
+    name: "vagrant" 
+    groups: ["docker"]
