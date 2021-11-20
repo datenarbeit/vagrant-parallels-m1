@@ -32,7 +32,7 @@ and run
 vagrant hostmanager
 ```
 
-###Run Docker
+### Run Docker
 If you previously installed Docker Desktop all dockker command line tools are installed on your machine. If not install from homebrew ```brew install docker```.
 
 To attach the provisioned machine you need to set your environment:
@@ -40,8 +40,8 @@ To attach the provisioned machine you need to set your environment:
 export DOCKER_HOST=ssh://vagrant@docker-vagrant
 ```
 
-You are ready to go.
-###Solve problems with base images
+You are ready to go. Having set the DOCKER_HOST in the environment, you can use docker and docker-compose like you did before.
+### Solve problems with base images
 Especialy older version are not available as arm images. Here are some links for Dockerfiles to solve those problems:
 * MySQL 5.7: https://github.com/beercan1989/docker-arm-mysql
 * t.b.c.
