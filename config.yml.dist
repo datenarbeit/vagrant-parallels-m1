@@ -11,4 +11,4 @@ vagrant:
 ansible:
   sysctl:
     vm:
-      max_map_count: "262144" #default is 65530
+      max_map_count: 262144    #default is 65530

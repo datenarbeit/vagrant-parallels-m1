@@ -26,6 +26,5 @@ Vagrant.configure("2") do |config|
   config.hostmanager.aliases = vagrant_config['host_aliases']
 
   config.vm.synced_folder "/Users", "/Users", owner: "vagrant"
- 
- 
+
 end
