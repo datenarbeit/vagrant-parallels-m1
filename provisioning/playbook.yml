@@ -2,12 +2,12 @@
   gather_facts: False
   become: yes
   vars_files:
-    - vars/docker.yml
+    - ../config.yml
   pre_tasks:
     - name: Install python for Ansible
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python3-minimal)
       changed_when: False
-    - setup: # aka gather_facts  tasks:  
+    - setup: # aka gather_facts  tasks:
   roles:
     - role: roles/apt
       tags: apt
@@ -24,3 +24,8 @@
         user: vagrant
         state: "present"
         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    # required for         
+    - ansible.posix.sysctl:
+        name: vm.max_map_count
+        value: '262144'
+        state: present

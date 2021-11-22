@@ -1,0 +1,14 @@
+vagrant:
+  hostname: "docker-vagrant"
+  box: "mpasternak/focal64-arm"
+  parallels:
+    memory: 8192
+    cpus: 4
+  host_aliases:
+    # - my-project-host
+    # - my-secont-project-host
+
+ansible:
+  sysctl:
+    vm:
+      max_map_count: "262144" #default is 65530
