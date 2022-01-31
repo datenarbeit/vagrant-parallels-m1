@@ -16,9 +16,10 @@ Vagrant.configure("2") do |config|
   
   config.vm.provider "parallels" do |prl|
     # if you want to update guest tools uncomment this line
-    # prl.update_guest_tools = true
+    prl.update_guest_tools = true
     prl.memory = vagrant_config['parallels']['memory']
     prl.cpus = vagrant_config['parallels']['cpus']
+    prl.linked_clone = false
   end
   
   config.hostmanager.enabled = true
